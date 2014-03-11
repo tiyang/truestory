@@ -1,5 +1,7 @@
 Truestory::Application.routes.draw do
 
+  devise_for :users
+
   resources :stories
 
   get "welcome/index"
