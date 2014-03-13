@@ -9,4 +9,8 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
 
   has_many :stories
+
+  def role?(base_role)
+    role == base_role.to_s
+  end
 end
