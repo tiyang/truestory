@@ -14,6 +14,7 @@ class StoriesController < ApplicationController
 
   def create
     @story = current_user.stories.new(params[:story])
+    authorize @story
     if @story.save
       flash[:notice] = "Story was published!"
       redirect_to @story
