@@ -2,7 +2,9 @@ Truestory::Application.routes.draw do
 
   devise_for :users
 
-  resources :stories
+  resources :stories do
+    resources :favors, only: [:create, :destroy]
+  end  
 
   get "welcome/index"
 

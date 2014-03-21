@@ -1,3 +1,4 @@
 <h1><%= @story.title %></h1>
 <%= link_to "Edit", edit_story_path(@story), class: 'btn btn-mini' %>
 <p><%= @story.body %></p>
+<%= render partial: 'favors/favor', local: {story: @story} %>
