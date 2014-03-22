@@ -9,8 +9,13 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
 
   has_many :stories
+  has_many :favors, dependent: :destroy
 
   def role?(base_role)
     role == base_role.to_s
   end
+
+  def favored(story)
+    self.favors.where(story_id: story.id).first
+  end  
 end

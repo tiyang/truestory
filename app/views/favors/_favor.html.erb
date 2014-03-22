@@ -1,0 +1,11 @@
+<div class="favor">
+  <% if favor = current_user.favored(@story) %>
+    <%= link_to [@story, favor], class: 'btn btn-danger', method: :delete do %>
+      <i class="glyphicon glyphicon-star-empty"> </i>&nbsp; UnFavor
+    <% end %>
+  <% else %>
+    <%= link_to [@story, Favor.new], class: 'btn btn-primary', method: :post do %>
+      <i class="glyphicon glyphicon-star"> </i>&nbsp; Favor
+    <% end %>
+  <% end %>
+</div>
