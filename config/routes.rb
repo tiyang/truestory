@@ -4,6 +4,7 @@ Truestory::Application.routes.draw do
 
   resources :stories do
     resources :favors, only: [:create, :destroy]
+    resources :votes, only: [:create, :destroy]
   end  
 
   get "welcome/index"
