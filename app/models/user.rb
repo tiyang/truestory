@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
 
   has_many :stories
   has_many :favors, dependent: :destroy
+  has_many :votes, dependent: :destroy
 
   def role?(base_role)
     role == base_role.to_s
@@ -17,5 +18,9 @@ class User < ActiveRecord::Base
 
   def favored(story)
     self.favors.where(story_id: story.id).first
-  end  
+  end 
+
+  def voted(story)
+    self.votes.where(story_id: story.id).first
+  end 
 end
